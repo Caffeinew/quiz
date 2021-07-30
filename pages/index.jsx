@@ -40,7 +40,6 @@ export default function Home({ data }) {
       body: JSON.stringify(formData).replaceAll(/[{}"]/g, ""),
     });
     const data = await res.json()
-    console.log(data)
     Swal.fire({
       title: data.msg,
       icon: data.icon,

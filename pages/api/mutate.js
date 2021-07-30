@@ -10,9 +10,9 @@ const mutate = (result) => gql`
 
 export default async function handler(req, res) {
   try {
-    request(process.env.CONTENT_API, mutate(req.body));
-    res.json({icon: "success", msg: "Отлично 😎"})
+    await request(process.env.CONTENT_API, mutate(req.body));
+    res.status(200).json({icon: "success", msg: "Отлично 😎"})
   } catch (error) {
-    res.json({icon: "error", msg: "Ошибка 🤬"})
+    res.status(500).json({icon: "error", msg: "Ошибка 🤬"})
   }
 }
